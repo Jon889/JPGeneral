@@ -10,5 +10,5 @@ with:
 `myRect = CGRectSetX(myRect.origin.x + 20);`
 
 #Coming Up
-UIColor category extension
-CGRect adjust functions
+ - UIColor category extension
+ - CGRect adjust functions

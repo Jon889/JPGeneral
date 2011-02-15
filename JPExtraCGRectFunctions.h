@@ -1,22 +1,26 @@
 /* Part of JPGeneral repository, Jon889: https://github.com/Jon889/JPGeneral
  Copyright (c) 2011 Jonathan Bailey
- May be modified and used in any project as long as all comments, including this one, remain.*/
+ May be modified and used in any project as long this comment remains.*/
+
 CG_INLINE CGRect
 CGRectSetSize(CGRect rect, CGFloat width, CGFloat height)
 {
-	rect.size.width = width; rect.size.height = height;
+	rect.size.width = width;
+	rect.size.height = height;
 	return rect;
 }
 CG_INLINE CGRect
 CGRectSetOrigin(CGRect rect, CGFloat x, CGFloat y)
 {
-	rect.origin.x = x; rect.origin.y = y;
+	rect.origin.x = x;
+	rect.origin.y = y;
 	return rect;
 }
 CG_INLINE CGRect
-CGRectSizeAdjust(CGRect rect, CGFloat iwidth, CGFloat iheight)
+CGRectAdjustSize(CGRect rect, CGFloat awidth, CGFloat aheight)
 {
-	rect.size.width += iwidth; rect.size.height += iheight;
+	rect.size.width += awidth;
+	rect.size.height += aheight;
 	return rect;
 }
 
@@ -42,6 +46,30 @@ CG_INLINE CGRect
 CGRectSetY(CGRect rect, CGFloat y)
 {
 	rect.origin.y = y;
+	return rect;
+}
+
+CGRectAdjustWidth(CGRect rect, CGFloat awidth)
+{
+	rect.size.width += awidth;
+	return rect;
+}
+CG_INLINE CGRect
+CGRectAdjustHeight(CGRect rect, CGFloat aheight)
+{
+	rect.size.height += aheight;
+	return rect;
+}
+CG_INLINE CGRect
+CGRectOffsetX(CGRect rect, CGFloat dx)
+{
+	rect.origin.x += dx; 
+	return rect;
+}
+CG_INLINE CGRect
+CGRectOffsetY(CGRect rect, CGFloat dy)
+{
+	rect.origin.y += dy;
 	return rect;
 }
 

@@ -1,3 +1,5 @@
+Use any files/code as you wish from this repo, it would be nice if you kept a link back to here in you code as a comment.
+
 #JPCategories
 ##NSString
 

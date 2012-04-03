@@ -104,6 +104,8 @@
     free(newChars);
     return [returnString autorelease];
 }
-
++(NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding {
+    return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+}
 
 @end

@@ -15,5 +15,5 @@
 -(float)floatForKey:(id)key;
 -(double)doubleForKey:(id)key;
 -(BOOL)boolForKey:(id)key;
--(NSURL)URLForKey:(id)key;
+-(NSURL *)URLForKey:(id)key;
 @end

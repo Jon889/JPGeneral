@@ -50,7 +50,7 @@
 -(BOOL)boolForKey:(id)key {
     return [[self objectForKey:key] boolValue];
 }
--(NSURL)URLForKey:(id)key {
+-(NSURL *)URLForKey:(id)key {
     id obj = [self objectForKey:key];
     if ([obj isKindOfClass:[NSURL class]]) {
         return obj;

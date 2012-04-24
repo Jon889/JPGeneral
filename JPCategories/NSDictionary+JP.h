@@ -16,4 +16,6 @@
 -(double)doubleForKey:(id)key;
 -(BOOL)boolForKey:(id)key;
 -(NSURL *)URLForKey:(id)key;
+
+-(id)objectForKeyPath:(NSString *)path;
 @end

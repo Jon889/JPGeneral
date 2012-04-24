@@ -57,4 +57,37 @@
     }
     return nil;   
 }
+
+-(id)objectForKeyPath:(NSString *)path {
+    NSArray *comps = [path componentsSeparatedByString:@"."];
+    id object = self;
+    for (NSString *comp in comps) {
+        if ([comp hasSuffix:@"]"]) {
+            NSRange range = [comp rangeOfString:@"[" options:NSBackwardsSearch];
+            if ([object respondsToSelector:@selector(objectForKey:)]) {
+                object = [object objectForKey:[comp substringToIndex:range.location]];
+            } else {
+                return nil;
+            }
+            
+            NSUInteger start = range.location + range.length;
+            NSString *index = [comp substringWithRange:NSMakeRange(start, comp.length - start - 1)];
+            if ([object respondsToSelector:@selector(objectAtIndex:)]) {
+                object = [object objectAtIndex:[index intValue]];
+            } else {
+                return nil;
+            }
+
+            
+        } else {
+            if ([object respondsToSelector:@selector(objectForKey:)]) {
+                object = [object objectForKey:comp];
+            } else {
+                return nil;
+            }
+
+        }
+    }
+    return object;
+}
 @end

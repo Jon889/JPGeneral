@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+#if TARGET_OS_IPHONE
 @interface UIViewController (UIViewController_JP)
 -(void)dismissModalViewControllerWithAnimation;
 -(void)dismissModalViewControllerWithoutAnimation;
 -(void)navigationControllerWillPopAnimated:(BOOL)animated;
 @end
+#endif

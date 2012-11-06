@@ -18,4 +18,5 @@
 -(NSURL *)URLForKey:(id)key;
 
 -(id)objectForKeyPath:(NSString *)path;
+
 @end

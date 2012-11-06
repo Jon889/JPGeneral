@@ -7,9 +7,20 @@
 //
 #import "NSString+JP.h"
 
+#if __has_feature(objc_arc)
+#error This file can't be compiled with ARC. Use -fno-objc-arc flag on this file in the Build Phases in the project settings
+//NOTE: If using "Convert To Objective-C ARC" tool follow the instruction above (in the error) and comment out the error while using the conversion tool, then uncomment the error after the project has been converted. (the error preventing the tool from working is a bug)
+#endif
+
 @implementation NSString (JP)
 @dynamic length;
++(NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding {
+    return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+}
 
+-(BOOL)isEmpty {
+	return self.length == 0;
+}
 - (NSString *)stringByFlatteningHTML {
 	
     NSScanner *thescanner;
@@ -68,7 +79,7 @@
     const char* base64 = [self cStringUsingEncoding:encoding];
     
     
-    int stringLength = strlen(base64);
+    size_t stringLength = strlen(base64);
     char* chars = malloc(stringLength * sizeof(char));
     char* pointer = chars;
     strcpy(chars, base64);
@@ -104,8 +115,15 @@
     free(newChars);
     return [returnString autorelease];
 }
-+(NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding {
-    return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+- (NSString *)substringToString:(NSString *)substring includeSubstring:(BOOL)include {
+	NSRange substrRange = [self rangeOfString:substring];
+	if (substrRange.location == NSNotFound) {
+		substrRange = NSMakeRange(0, 0);
+	}
+	return [self substringToIndex:substrRange.location + (bool)include * substrRange.length];
+}
+- (BOOL)containsString:(NSString *)substring {
+	return [self rangeOfString:substring].location != NSNotFound;
 }
 
 @end

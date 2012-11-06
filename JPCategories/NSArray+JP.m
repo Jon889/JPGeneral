@@ -10,5 +10,5 @@
 
 
 @implementation NSArray (JP)
-
+@dynamic count;
 @end

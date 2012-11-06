@@ -8,7 +8,7 @@
 
 #import "UIWebView+JP.h"
 
-
+#if TARGET_OS_IPHONE
 @implementation UIWebView (JP)
 - (void)loadURLString:(NSString *)requestString {
     [self loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestString]]];
@@ -18,3 +18,4 @@
     [self stringByEvaluatingJavaScriptFromString:script];
 }
 @end
+#endif

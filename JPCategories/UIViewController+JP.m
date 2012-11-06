@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+JP.h"
-
+#if TARGET_OS_IPHONE
 @implementation UIViewController (UIViewController_JP)
 -(void)dismissModalViewControllerWithAnimation {
     [self dismissModalViewControllerAnimated:YES];
@@ -19,3 +19,4 @@
     //to be overriden
 }
 @end
+#endif

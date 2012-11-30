@@ -8,4 +8,5 @@
 
 @interface NSArray (JP)
 @property (readonly) NSUInteger count;
+-(NSArray *)arrayByGroupingWithKey:(NSString *)kv;
 @end

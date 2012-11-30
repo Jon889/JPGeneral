@@ -18,8 +18,8 @@
     return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
 }
 
--(BOOL)isEmpty {
-	return self.length == 0;
+-(BOOL)isNotEmpty {
+	return self.length != 0;
 }
 - (NSString *)stringByFlatteningHTML {
 	

@@ -11,4 +11,18 @@
 
 @implementation NSArray (JP)
 @dynamic count;
+-(NSArray *)arrayByGroupingWithKey:(NSString *)kv {
+	NSMutableDictionary *groups = [NSMutableDictionary dictionary];
+	for (id obj in self) {
+		NSString *groupingValue = [obj valueForKey:kv];
+		NSMutableArray *group = [groups objectForKey:groupingValue];
+		if (!group) {
+			group = [NSMutableArray array];
+			[groups setObject:group forKey:groupingValue];
+		}
+		[group addObject:obj];
+	}
+	return [groups allValues];
+}
+
 @end

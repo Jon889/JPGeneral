@@ -11,6 +11,6 @@
 - (NSRange)range;
 - (NSString *)substringToString:(NSString *)substring includeSubstring:(BOOL)include;
 - (BOOL)containsString:(NSString *)substring;
--(BOOL)isEmpty;
+-(BOOL)isNotEmpty;
 @end
 
